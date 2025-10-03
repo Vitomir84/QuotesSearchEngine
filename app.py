@@ -1,6 +1,6 @@
 import streamlit as st
-from models.quotes_search_engine import QuoteSearchEngine
-from models.data_reader import load_quotes_from_csv
+from quotes_search_engine import QuoteSearchEngine
+from data_reader import load_quotes_from_csv
 
 # Cache the prompts data to avoid reloading every time
 @st.cache_data
@@ -55,4 +55,5 @@ if st.button("Retrieve All Vector Similarities"):
         all_similarities = search_engine.cosine_similarity(query_embedding, search_engine.index)
         st.write(f"Vector Similarities: {all_similarities}")
     else:
+
         st.error("Please enter a quote or phrase.")
