@@ -5,9 +5,9 @@ import uvicorn
 import socket
 import logging
 import datetime
-from models.quotes_search_engine import QuoteSearchEngine
-from models.data_reader import load_quotes_from_csv
-from models.Query import Query, Query_Multiple, SearchResponse, SimilarQuote, QuoteVector, VectorResponse
+from quotes_search_engine import QuoteSearchEngine
+from data_reader import load_quotes_from_csv
+from Query import Query, Query_Multiple, SearchResponse, SimilarQuote, QuoteVector, VectorResponse
 from decouple import config
 from fastapi import FastAPI, HTTPException, Depends, Body
 from sentence_transformers import SentenceTransformer
@@ -62,4 +62,5 @@ if __name__ == "__main__":
     # SERVER_HOST_IP = socket.gethostbyname(socket.gethostname())
     SERVER_HOST_IP = socket.gethostbyname("localhost") # for local deployment
     SERVER_PORT = int(8084)
+
     uvicorn.run(app, host=SERVER_HOST_IP, port=SERVER_PORT)
